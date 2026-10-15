@@ -1,0 +1,56 @@
+{
+  "scenario_version": "0.1.0",
+  "id": "fracture-capacity-shift",
+  "title": "Imaging queue changes the fastest route",
+  "description": "Synthetic fracture pathway. The nearest hospital starts with a severe X-ray queue; a later capacity change makes Hospital C the fastest eligible option.",
+  "steps": [
+    {
+      "label": "T = 0 min",
+      "event": "Baseline synthetic network",
+      "snapshot": {
+        "schema_version": "0.1.0",
+        "network_id": "fosdem-demo",
+        "observed_at": "2027-01-30T09:00:00Z",
+        "patient_need": {"name": "Suspected leg fracture", "required_capabilities": ["xray", "orthopedics"]},
+        "hospitals": [
+          {"hospital_id": "A", "name": "Hospital A — Nearest", "travel_minutes": 8, "ed_delay_minutes": 38, "capabilities": ["xray", "ct", "orthopedics", "trauma", "or"], "resource_delays": {"xray": 120, "ct": 35, "orthopedics": 20, "trauma": 10, "or": 55}, "temporary_closures": [], "source": "synthetic://hospital-a", "freshness_minutes": 4, "confidence": 0.78},
+          {"hospital_id": "B", "name": "Hospital B — Faster resources", "travel_minutes": 18, "ed_delay_minutes": 15, "capabilities": ["xray", "ct", "orthopedics", "stroke", "or"], "resource_delays": {"xray": 15, "ct": 12, "orthopedics": 5, "stroke": 0, "or": 35}, "temporary_closures": [], "source": "synthetic://hospital-b", "freshness_minutes": 7, "confidence": 0.84},
+          {"hospital_id": "C", "name": "Hospital C — Specialist centre", "travel_minutes": 27, "ed_delay_minutes": 12, "capabilities": ["xray", "ct", "orthopedics", "stroke", "trauma", "or"], "resource_delays": {"xray": 10, "ct": 8, "orthopedics": 15, "stroke": 0, "trauma": 0, "or": 18}, "temporary_closures": [], "source": "synthetic://hospital-c", "freshness_minutes": 3, "confidence": 0.88},
+          {"hospital_id": "D", "name": "Hospital D — Limited capability", "travel_minutes": 12, "ed_delay_minutes": 20, "capabilities": ["xray", "ct"], "resource_delays": {"xray": 20, "ct": 25}, "temporary_closures": [], "source": "synthetic://hospital-d", "freshness_minutes": 6, "confidence": 0.72}
+        ]
+      }
+    },
+    {
+      "label": "T = 15 min",
+      "event": "Hospital B ED load rises; Hospital C clears imaging and orthopaedics queues",
+      "snapshot": {
+        "schema_version": "0.1.0",
+        "network_id": "fosdem-demo",
+        "observed_at": "2027-01-30T09:15:00Z",
+        "patient_need": {"name": "Suspected leg fracture", "required_capabilities": ["xray", "orthopedics"]},
+        "hospitals": [
+          {"hospital_id": "A", "name": "Hospital A — Nearest", "travel_minutes": 8, "ed_delay_minutes": 39, "capabilities": ["xray", "ct", "orthopedics", "trauma", "or"], "resource_delays": {"xray": 120, "ct": 34, "orthopedics": 20, "trauma": 10, "or": 55}, "temporary_closures": [], "source": "synthetic://hospital-a", "freshness_minutes": 5, "confidence": 0.77},
+          {"hospital_id": "B", "name": "Hospital B — Faster resources", "travel_minutes": 18, "ed_delay_minutes": 27, "capabilities": ["xray", "ct", "orthopedics", "stroke", "or"], "resource_delays": {"xray": 12, "ct": 12, "orthopedics": 5, "stroke": 0, "or": 35}, "temporary_closures": [], "source": "synthetic://hospital-b", "freshness_minutes": 3, "confidence": 0.86},
+          {"hospital_id": "C", "name": "Hospital C — Specialist centre", "travel_minutes": 27, "ed_delay_minutes": 8, "capabilities": ["xray", "ct", "orthopedics", "stroke", "trauma", "or"], "resource_delays": {"xray": 8, "ct": 8, "orthopedics": 5, "stroke": 0, "trauma": 0, "or": 18}, "temporary_closures": [], "source": "synthetic://hospital-c", "freshness_minutes": 2, "confidence": 0.91},
+          {"hospital_id": "D", "name": "Hospital D — Limited capability", "travel_minutes": 12, "ed_delay_minutes": 19, "capabilities": ["xray", "ct"], "resource_delays": {"xray": 18, "ct": 24}, "temporary_closures": [], "source": "synthetic://hospital-d", "freshness_minutes": 7, "confidence": 0.70}
+        ]
+      }
+    },
+    {
+      "label": "T = 30 min",
+      "event": "Hospital C reports a temporary orthopaedics closure",
+      "snapshot": {
+        "schema_version": "0.1.0",
+        "network_id": "fosdem-demo",
+        "observed_at": "2027-01-30T09:30:00Z",
+        "patient_need": {"name": "Suspected leg fracture", "required_capabilities": ["xray", "orthopedics"]},
+        "hospitals": [
+          {"hospital_id": "A", "name": "Hospital A — Nearest", "travel_minutes": 8, "ed_delay_minutes": 35, "capabilities": ["xray", "ct", "orthopedics", "trauma", "or"], "resource_delays": {"xray": 95, "ct": 30, "orthopedics": 20, "trauma": 10, "or": 45}, "temporary_closures": [], "source": "synthetic://hospital-a", "freshness_minutes": 4, "confidence": 0.80},
+          {"hospital_id": "B", "name": "Hospital B — Faster resources", "travel_minutes": 18, "ed_delay_minutes": 18, "capabilities": ["xray", "ct", "orthopedics", "stroke", "or"], "resource_delays": {"xray": 20, "ct": 12, "orthopedics": 8, "stroke": 0, "or": 35}, "temporary_closures": [], "source": "synthetic://hospital-b", "freshness_minutes": 2, "confidence": 0.88},
+          {"hospital_id": "C", "name": "Hospital C — Specialist centre", "travel_minutes": 27, "ed_delay_minutes": 9, "capabilities": ["xray", "ct", "orthopedics", "stroke", "trauma", "or"], "resource_delays": {"xray": 8, "ct": 8, "orthopedics": 5, "stroke": 0, "trauma": 0, "or": 18}, "temporary_closures": ["orthopedics"], "source": "synthetic://hospital-c", "freshness_minutes": 1, "confidence": 0.94},
+          {"hospital_id": "D", "name": "Hospital D — Limited capability", "travel_minutes": 12, "ed_delay_minutes": 18, "capabilities": ["xray", "ct"], "resource_delays": {"xray": 18, "ct": 22}, "temporary_closures": [], "source": "synthetic://hospital-d", "freshness_minutes": 8, "confidence": 0.68}
+        ]
+      }
+    }
+  ]
+}

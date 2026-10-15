@@ -1,0 +1,24 @@
+{
+  "scenario_version": "0.1.0",
+  "id": "stroke-capacity-shift",
+  "title": "Stroke capability before distance",
+  "description": "Synthetic pathway showing capability filtering before time-to-care ranking.",
+  "steps": [
+    {
+      "label": "T = 0 min",
+      "event": "Only hospitals B and C satisfy the declared CT + stroke requirement",
+      "snapshot": {
+        "schema_version": "0.1.0",
+        "network_id": "fosdem-demo",
+        "observed_at": "2027-01-30T10:00:00Z",
+        "patient_need": {"name": "Possible stroke", "required_capabilities": ["ct", "stroke"]},
+        "hospitals": [
+          {"hospital_id": "A", "name": "Hospital A — Nearest", "travel_minutes": 8, "ed_delay_minutes": 20, "capabilities": ["xray", "ct", "orthopedics", "trauma", "or"], "resource_delays": {"ct": 22}, "temporary_closures": [], "source": "synthetic://hospital-a", "freshness_minutes": 4, "confidence": 0.80},
+          {"hospital_id": "B", "name": "Hospital B — Stroke-ready", "travel_minutes": 18, "ed_delay_minutes": 14, "capabilities": ["ct", "stroke", "or"], "resource_delays": {"ct": 10, "stroke": 0}, "temporary_closures": [], "source": "synthetic://hospital-b", "freshness_minutes": 2, "confidence": 0.90},
+          {"hospital_id": "C", "name": "Hospital C — Specialist centre", "travel_minutes": 27, "ed_delay_minutes": 8, "capabilities": ["ct", "stroke", "trauma", "or"], "resource_delays": {"ct": 6, "stroke": 0}, "temporary_closures": [], "source": "synthetic://hospital-c", "freshness_minutes": 1, "confidence": 0.93},
+          {"hospital_id": "D", "name": "Hospital D — Limited capability", "travel_minutes": 12, "ed_delay_minutes": 12, "capabilities": ["xray", "ct"], "resource_delays": {"ct": 15}, "temporary_closures": [], "source": "synthetic://hospital-d", "freshness_minutes": 5, "confidence": 0.75}
+        ]
+      }
+    }
+  ]
+}

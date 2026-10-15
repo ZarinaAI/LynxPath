@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencareflow.dev/schema/capacity-snapshot.schema.json",
+  "title": "OpenCareFlow Capacity Snapshot",
+  "description": "Open, vendor-neutral operational signals used by the OpenCareFlow reference estimator. Synthetic/demo use in v0.1.",
+  "type": "object",
+  "required": ["schema_version", "network_id", "observed_at", "patient_need", "hospitals"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "0.1.0"},
+    "network_id": {"type": "string", "minLength": 1},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "patient_need": {
+      "type": "object",
+      "required": ["name", "required_capabilities"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "required_capabilities": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      },
+      "additionalProperties": false
+    },
+    "hospitals": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "hospital_id", "name", "travel_minutes", "ed_delay_minutes",
+          "capabilities", "resource_delays", "source", "freshness_minutes", "confidence"
+        ],
+        "properties": {
+          "hospital_id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "travel_minutes": {"type": "integer", "minimum": 0},
+          "ed_delay_minutes": {"type": "integer", "minimum": 0},
+          "capabilities": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "resource_delays": {
+            "type": "object",
+            "additionalProperties": {"type": "integer", "minimum": 0}
+          },
+          "temporary_closures": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {"type": "string", "minLength": 1},
+            "default": []
+          },
+          "source": {"type": "string", "minLength": 1},
+          "freshness_minutes": {"type": "integer", "minimum": 0},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

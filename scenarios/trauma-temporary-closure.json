@@ -1,0 +1,38 @@
+{
+  "scenario_version": "0.1.0",
+  "id": "trauma-temporary-closure",
+  "title": "Temporary resource closure",
+  "description": "Synthetic trauma pathway demonstrating that eligibility can change immediately when a required resource closes.",
+  "steps": [
+    {
+      "label": "T = 0 min",
+      "event": "Hospitals A and C satisfy CT + trauma + operating room",
+      "snapshot": {
+        "schema_version": "0.1.0",
+        "network_id": "fosdem-demo",
+        "observed_at": "2027-01-30T11:00:00Z",
+        "patient_need": {"name": "Possible major trauma", "required_capabilities": ["ct", "trauma", "or"]},
+        "hospitals": [
+          {"hospital_id": "A", "name": "Hospital A — Nearest", "travel_minutes": 8, "ed_delay_minutes": 26, "capabilities": ["ct", "trauma", "or"], "resource_delays": {"ct": 18, "trauma": 5, "or": 35}, "temporary_closures": [], "source": "synthetic://hospital-a", "freshness_minutes": 3, "confidence": 0.86},
+          {"hospital_id": "B", "name": "Hospital B", "travel_minutes": 18, "ed_delay_minutes": 18, "capabilities": ["ct", "or"], "resource_delays": {"ct": 9, "or": 28}, "temporary_closures": [], "source": "synthetic://hospital-b", "freshness_minutes": 4, "confidence": 0.84},
+          {"hospital_id": "C", "name": "Hospital C — Trauma centre", "travel_minutes": 27, "ed_delay_minutes": 9, "capabilities": ["ct", "trauma", "or"], "resource_delays": {"ct": 6, "trauma": 0, "or": 12}, "temporary_closures": [], "source": "synthetic://hospital-c", "freshness_minutes": 1, "confidence": 0.94}
+        ]
+      }
+    },
+    {
+      "label": "T = 15 min",
+      "event": "Hospital C operating room becomes temporarily unavailable",
+      "snapshot": {
+        "schema_version": "0.1.0",
+        "network_id": "fosdem-demo",
+        "observed_at": "2027-01-30T11:15:00Z",
+        "patient_need": {"name": "Possible major trauma", "required_capabilities": ["ct", "trauma", "or"]},
+        "hospitals": [
+          {"hospital_id": "A", "name": "Hospital A — Nearest", "travel_minutes": 8, "ed_delay_minutes": 24, "capabilities": ["ct", "trauma", "or"], "resource_delays": {"ct": 16, "trauma": 5, "or": 32}, "temporary_closures": [], "source": "synthetic://hospital-a", "freshness_minutes": 2, "confidence": 0.89},
+          {"hospital_id": "B", "name": "Hospital B", "travel_minutes": 18, "ed_delay_minutes": 17, "capabilities": ["ct", "or"], "resource_delays": {"ct": 9, "or": 28}, "temporary_closures": [], "source": "synthetic://hospital-b", "freshness_minutes": 4, "confidence": 0.84},
+          {"hospital_id": "C", "name": "Hospital C — Trauma centre", "travel_minutes": 27, "ed_delay_minutes": 8, "capabilities": ["ct", "trauma", "or"], "resource_delays": {"ct": 6, "trauma": 0, "or": 12}, "temporary_closures": ["or"], "source": "synthetic://hospital-c", "freshness_minutes": 1, "confidence": 0.95}
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+title: OpenCareFlow
+message: "If you use the schema, scenarios or reference estimator in research, please cite the repository release."
+type: software
+version: 0.1.0
+license: Apache-2.0
+repository-code: "https://github.com/YOUR_USERNAME/OpenCareFlow"
+abstract: "Open capacity signals and explainable time-to-care estimation using synthetic emergency-care scenarios."
