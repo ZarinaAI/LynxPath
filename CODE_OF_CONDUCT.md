@@ -1,6 +1,6 @@
 # Code of Conduct
 
-OpenCareFlow follows the Contributor Covenant, version 2.1.
+LynxPath follows the Contributor Covenant, version 2.1.
 
 We are committed to a harassment-free, welcoming and technically constructive community. Contributors should assume good faith, critique ideas rather than people, and avoid sharing sensitive patient, employee or hospital information.
 

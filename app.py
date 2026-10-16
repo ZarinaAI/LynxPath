@@ -5,10 +5,10 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-from opencareflow.data import CAPABILITIES
-from opencareflow.engine import explain_ranking_change, rank_hospitals
-from opencareflow.models import PatientNeed
-from opencareflow.scenarios import list_scenarios, load_scenario
+from lynxpath.data import CAPABILITIES
+from lynxpath.engine import explain_ranking_change, rank_hospitals
+from lynxpath.models import PatientNeed
+from lynxpath.scenarios import list_scenarios, load_scenario
 
 st.set_page_config(page_title="LynxPath v0.1", page_icon="site/assets/app-icon.png", layout="wide")
 
@@ -44,10 +44,10 @@ with st.sidebar:
     st.write(f"**{step.label}**")
     st.caption(step.event or "Synthetic snapshot")
     cprev, cnext = st.columns(2)
-    if cprev.button("← Previous", use_container_width=True, disabled=step_index == 0):
+    if cprev.button("← Previous", width="stretch", disabled=step_index == 0):
         st.session_state.step_index = step_index - 1
         st.rerun()
-    if cnext.button("Next →", use_container_width=True, disabled=step_index >= len(scenario.steps) - 1):
+    if cnext.button("Next →", width="stretch", disabled=step_index >= len(scenario.steps) - 1):
         st.session_state.step_index = step_index + 1
         st.rerun()
 
@@ -107,7 +107,7 @@ for e in current_estimates:
         rank_number += 1
     rows.append(
         {
-            "Rank": rank_number if e.eligible else "—",
+            "Rank": str(rank_number) if e.eligible else "—",
             "Hospital": e.hospital_name,
             "Eligible": "Yes" if e.eligible else "No",
             "Travel": f"{e.travel_minutes} min",
@@ -122,7 +122,7 @@ for e in current_estimates:
     )
 
 st.subheader("Ranked options")
-st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True)
 
 st.subheader("Inspectable estimate")
 for e in current_estimates:

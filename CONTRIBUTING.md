@@ -1,6 +1,6 @@
-# Contributing to OpenCareFlow
+# Contributing to LynxPath
 
-OpenCareFlow v0.1 is intentionally small. Contributions should preserve four principles:
+LynxPath v0.1 is intentionally small. Contributions should preserve four principles:
 
 1. **Clinical requirements are inputs.** The project must not infer diagnosis or required care in the reference demo.
 2. **Operational estimates are inspectable.** Keep components, freshness and uncertainty visible.
@@ -12,7 +12,7 @@ OpenCareFlow v0.1 is intentionally small. Contributions should preserve four pri
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt -r requirements-dev.txt
 pytest -q
 streamlit run app.py
 ```
