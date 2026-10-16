@@ -236,18 +236,10 @@ st.markdown(
 # ---------------------------------------------------------
 
 st.markdown(
-    """
-    <div class="lynx-nav">
-        <div class="lynx-brand">
-            Lynx<span>Path</span>
-        </div>
-
-        <div class="lynx-nav-links">
-            The approach &nbsp;&nbsp;&nbsp;&nbsp;
-            Interactive demo
-        </div>
-    </div>
-    """,
+    """<div class="lynx-nav">
+<div class="lynx-brand">Lynx<span>Path</span></div>
+<div class="lynx-nav-links">The approach &nbsp;&nbsp;&nbsp;&nbsp; Interactive demo</div>
+</div>""",
     unsafe_allow_html=True,
 )
 
@@ -261,38 +253,18 @@ hero_left, hero_right = st.columns([1.05, 1], gap="large")
 with hero_left:
 
     st.markdown(
-        """
-        <div class="eyebrow">
-            OPEN SOURCE · RESEARCH DEMO · V0.1
-        </div>
-
-        <div class="hero-title">
-            The nearest hospital.
-        </div>
-
-        <div class="hero-script">
-            Or the fastest care?
-        </div>
-
-        <div class="hero-copy">
-            The closest suitable hospital is not always the fastest route
-            to the care a patient needs. LynxPath compares travel time,
-            emergency-department delay and required-resource delays
-            to make that operational difference visible.
-        </div>
-
-        <a class="hero-button" href="#interactive-demo">
-            Explore the live demo ↗
-        </a>
-
-        <a class="secondary-link" href="#how-it-works">
-            How it works ↓
-        </a>
-
-        <div class="hero-note">
-            ● &nbsp; Transparent estimates. Reproducible scenarios.
-        </div>
-        """,
+        """<div class="eyebrow">OPEN SOURCE · RESEARCH DEMO · V0.1</div>
+<div class="hero-title">The nearest hospital.</div>
+<div class="hero-script">Or the fastest care?</div>
+<div class="hero-copy">
+The closest suitable hospital is not always the fastest route
+to the care a patient needs. LynxPath compares travel time,
+emergency-department delay and required-resource delays
+to make that operational difference visible.
+</div>
+<a class="hero-button" href="#interactive-demo">Explore the live demo ↗</a>
+<a class="secondary-link" href="#how-it-works">How it works ↓</a>
+<div class="hero-note">● &nbsp; Transparent estimates. Reproducible scenarios.</div>""",
         unsafe_allow_html=True,
     )
 
@@ -313,26 +285,17 @@ st.divider()
 # ---------------------------------------------------------
 
 st.markdown(
-    """
-    <div id="how-it-works"></div>
-
-    <div class="demo-intro">
-        <div class="demo-eyebrow">
-            HOW IT WORKS
-        </div>
-
-        <div class="demo-title">
-            Compare operational time-to-care.
-        </div>
-
-        <p>
-            The clinician or pathway declares the resources required.
-            LynxPath excludes facilities that cannot provide them and
-            compares the remaining options using travel time, ED delay
-            and required-resource delays.
-        </p>
-    </div>
-    """,
+    """<div id="how-it-works"></div>
+<div class="demo-intro">
+<div class="demo-eyebrow">HOW IT WORKS</div>
+<div class="demo-title">Compare operational time-to-care.</div>
+<p>
+The clinician or pathway declares the resources required.
+LynxPath excludes facilities that cannot provide them and
+compares the remaining options using travel time, ED delay
+and required-resource delays.
+</p>
+</div>""",
     unsafe_allow_html=True,
 )
 
@@ -369,24 +332,15 @@ st.divider()
 # ---------------------------------------------------------
 
 st.markdown(
-    """
-    <div id="interactive-demo"></div>
-
-    <div class="demo-intro">
-        <div class="demo-eyebrow">
-            INTERACTIVE DEMO
-        </div>
-
-        <div class="demo-title">
-            Reproducible hospital scenario
-        </div>
-
-        <p>
-            Explore a synthetic hospital network and see how changing
-            operational conditions affect the ranking.
-        </p>
-    </div>
-    """,
+    """<div id="interactive-demo"></div>
+<div class="demo-intro">
+<div class="demo-eyebrow">INTERACTIVE DEMO</div>
+<div class="demo-title">Reproducible hospital scenario</div>
+<p>
+Explore a synthetic hospital network and see how changing
+operational conditions affect the ranking.
+</p>
+</div>""",
     unsafe_allow_html=True,
 )
 
