@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from opencareflow.engine import explain_ranking_change, rank_hospitals
-from opencareflow.scenarios import load_scenario, validate_scenario_document
+from lynxpath.engine import explain_ranking_change, rank_hospitals
+from lynxpath.scenarios import load_scenario, validate_scenario_document
 
 
 ROOT = Path(__file__).resolve().parents[1]
