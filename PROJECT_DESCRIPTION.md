@@ -1,44 +1,83 @@
 # LynxPath — Project Description
 
-**LynxPath is an open-source interoperability and simulation project for explainable operational time-to-care estimation.**
+## The problem
 
-A clinician or operational pathway declares the resources a patient requires. LynxPath filters facilities that cannot provide those resources, estimates the time to reach the required care at e[...]
+Emergency patients are often sent to the **nearest suitable hospital**, but the nearest hospital is not always the one that can provide the required care fastest.
 
-The v0.1 reference estimator uses:
+A hospital may have the right specialty and available beds, but still have:
 
-**travel time + ED operational delay + required-resource delays**
+- a long X-ray or CT queue;
+- an overloaded emergency department;
+- a temporary specialist shortage;
+- unavailable or delayed equipment;
+- another operational bottleneck.
 
-and reports a range whose width increases when data is less reliable or older.
+This can create avoidable waiting and delay treatment.
 
-## Core contribution
+## The project
 
-The project is centered on an **open capacity-signal schema**, not on a proprietary hospital dashboard. Different sources — synthetic simulators, FHIR-like feeds, ROR-style data, local capacity [...]
+**LynxPath is an open-source project that estimates how quickly a patient could reach the care they need at different hospitals.**
 
-The v0.1 repository includes:
+A clinician or operational pathway defines the required resources, for example:
 
+- X-ray;
+- CT;
+- orthopaedics;
+- a specialist team.
+
+LynxPath first filters out hospitals that cannot provide those resources.
+
+For the remaining hospitals, it estimates:
+
+**travel time + emergency department delay + required-resource delay**
+
+It also reports uncertainty. When capacity information is older or less reliable, the estimated time range becomes wider.
+
+LynxPath then shows which suitable hospitals are likely to provide the required care sooner and explains why the ranking changes.
+
+## Example
+
+A patient needs **X-ray + orthopaedics**.
+
+At **T = 0**, Hospital A is only 8 minutes away but has a severe imaging queue. Hospital B is farther away but has much better availability, so Hospital B ranks first.
+
+At **T = 15**, Hospital B becomes busier while Hospital C clears its imaging and orthopaedics queues. Hospital C moves into first place.
+
+At **T = 30**, Hospital C reports a temporary orthopaedics closure and becomes ineligible for the pathway.
+
+The final decision always remains with the clinician.
+
+## What v0.1 includes
+
+The first version includes:
+
+- an open format for hospital-capacity data;
 - JSON Schema definitions for capacity snapshots and reproducible scenarios;
 - deterministic synthetic multi-hospital scenarios;
-- an eligibility engine;
+- a hospital eligibility engine;
 - an explainable time-to-care estimator;
-- uncertainty informed by confidence and data freshness;
-- ranking-change explanations;
+- uncertainty based on confidence and data freshness;
+- explanations for ranking changes;
 - a Streamlit reference demo;
-- tests, CI, Docker Compose and contributor documentation.
+- tests and CI;
+- Docker Compose;
+- contributor documentation.
 
-## Demo story
+## Core open-source contribution
 
-A synthetic fracture pathway requires X-ray and orthopaedics.
+LynxPath is not intended to become another closed hospital dashboard.
 
-At **T = 0**, Hospital A is only 8 minutes away but has a severe imaging queue. Hospital B is farther away and ranks first at 53 minutes estimated time-to-care.
+Its main contribution is an **open capacity-signal schema and simulation framework** that can eventually connect different operational data sources.
 
-At **T = 15**, Hospital B becomes busier while Hospital C clears its imaging and orthopaedics queues. Hospital C moves from second to first at 48 minutes. LynxPath explains which delay compone[...]
+Possible sources include:
 
-At **T = 30**, Hospital C reports a temporary orthopaedics closure and becomes ineligible for that pathway.
-
-## Boundary
-
-LynxPath v0.1 uses synthetic data only and is not for clinical use. It does not diagnose, infer patient needs or autonomously select a hospital. The project is intended to make the interoperabilit[...]
-
-## FOSS direction
-
-The most valuable community work is schema review, adapters, benchmark scenarios and comparison with existing simulation/patient-flow projects. The long-term goal is not to replace national or hos[...]
+```text
+Synthetic simulators
+        ↓
+Hospital systems
+        ↓
+FHIR-compatible feeds
+        ↓
+Regional / national capacity systems
+        ↓
+LynxPath
