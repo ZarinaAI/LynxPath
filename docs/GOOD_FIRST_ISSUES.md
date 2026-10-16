@@ -18,7 +18,7 @@ Add `python -m opencareflow.validate path/to/file.json` that prints either `vali
 
 **Label:** `good first issue`, `adapter`, `interoperability`
 
-Use a **synthetic** JSON fixture shaped like a FHIR feed and map it into the OpenCareFlow capacity snapshot. Do not connect to a real endpoint.
+Use a **synthetic** JSON fixture shaped like a FHIR feed and map it into the LynxPath capacity snapshot. Do not connect to a real endpoint.
 
 ## 4. Improve stale-signal visualization
 

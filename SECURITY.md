@@ -1,6 +1,6 @@
 # Security Policy
 
-OpenCareFlow v0.1 is a synthetic research/demo project and must not process real patient data.
+LynxPath v0.1 is a synthetic research/demo project and must not process real patient data.
 
 Please do not open public issues containing credentials, vulnerabilities in a real hospital system, patient information or confidential operational data.
 
