@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://opencareflow.dev/schema/capacity-snapshot.schema.json",
-  "title": "OpenCareFlow Capacity Snapshot",
-  "description": "Open, vendor-neutral operational signals used by the OpenCareFlow reference estimator. Synthetic/demo use in v0.1.",
+  "$id": "https://lynxpath.dev/schema/capacity-snapshot.schema.json",
+  "title": "LynxPath Capacity Snapshot",
+  "description": "Open, vendor-neutral operational signals used by the LynxPath reference estimator. Synthetic/demo use in v0.1.",
   "type": "object",
   "required": ["schema_version", "network_id", "observed_at", "patient_need", "hospitals"],
   "properties": {

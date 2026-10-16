@@ -1,6 +1,6 @@
-# OpenCareFlow capacity-signal schema v0.1
+# LynxPath capacity-signal schema v0.1
 
-The schema is the main interoperability hook in OpenCareFlow.
+The schema is the main interoperability hook in LynxPath.
 
 A **capacity snapshot** describes only the operational signals needed by the reference estimator:
 
@@ -14,13 +14,13 @@ The schema deliberately does **not** contain diagnosis, patient identifiers or a
 
 ## Why this matters
 
-Hospital and regional systems expose capacity in different formats. OpenCareFlow keeps adapters at the edge and makes the estimator consume one small, testable representation.
+Hospital and regional systems expose capacity in different formats. LynxPath keeps adapters at the edge and makes the estimator consume one small, testable representation.
 
 ```text
 FHIR / ROR-style / local feed / synthetic simulator
                       │
                       ▼
-          OpenCareFlow capacity snapshot
+          LynxPath capacity snapshot
                       │
            ┌──────────┴──────────┐
            ▼                     ▼
