@@ -1,4 +1,4 @@
-"""OpenCareFlow reference implementation."""
+"""LynxPath reference implementation."""
 
 from .engine import CareEstimate, estimate_time_to_care, explain_ranking_change, rank_hospitals
 from .models import HospitalState, PatientNeed
