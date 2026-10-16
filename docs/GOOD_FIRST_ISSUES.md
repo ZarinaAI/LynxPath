@@ -12,7 +12,7 @@ Create one synthetic scenario that demonstrates a different resource bottleneck,
 
 **Label:** `good first issue`, `tooling`
 
-Add `python -m opencareflow.validate path/to/file.json` that prints either `valid` or a readable schema error. Include tests.
+Add `python -m lynxpath.validate path/to/file.json` that prints either `valid` or a readable schema error. Include tests.
 
 ## 3. Add a minimal FHIR-shaped example adapter
 
