@@ -16,6 +16,6 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
-      - run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt -r requirements-dev.txt
       - run: pytest -q
-      - run: python -m compileall -q opencareflow app.py
+      - run: python -m compileall -q lynxpath app.py
