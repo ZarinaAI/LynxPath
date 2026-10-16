@@ -1,8 +1,8 @@
-# LynxPath v0.1
+# Lynx path v0.1
 
 > **Open capacity signals + explainable time-to-care estimation.**
 
-LynxPath is an open-source research/demo project for one operational question:
+Lynx path is an open-source research/demo project for one operational question:
 
 > Given a clinician-declared set of required capabilities, which eligible facility currently has the shortest estimated time to those resources — and why?
 
@@ -31,7 +31,7 @@ In the reproducible fracture demo:
 | Hospital B | 18 min | 15 min | 20 min | **53 min** |
 | Hospital C | 27 min | 12 min | 25 min | **64 min** |
 
-Fifteen synthetic minutes later, the operational signals change and **Hospital C becomes the fastest option at 48 min**. LynxPath explains the switch instead of showing a static distance list.
+Fifteen synthetic minutes later, the operational signals change and **Hospital C becomes the fastest option at 48 min**. Lynx path explains the switch instead of showing a static distance list.
 
 ## The technical hook: an open capacity-signal schema
 
@@ -102,7 +102,7 @@ The tests verify:
 
 ## Safety boundary
 
-LynxPath v0.1 deliberately avoids clinical inference.
+Lynx path v0.1 deliberately avoids clinical inference.
 
 The user or an authorized pathway supplies the required capabilities. The software does **not**:
 

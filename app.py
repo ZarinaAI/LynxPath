@@ -10,9 +10,9 @@ from opencareflow.engine import explain_ranking_change, rank_hospitals
 from opencareflow.models import PatientNeed
 from opencareflow.scenarios import list_scenarios, load_scenario
 
-st.set_page_config(page_title="OpenCareFlow v0.1", page_icon="🏥", layout="wide")
+st.set_page_config(page_title="Lynx path v0.1", page_icon="🏥", layout="wide")
 
-st.title("OpenCareFlow")
+st.title("Lynx path")
 st.caption("Open capacity signals + explainable time-to-care • v0.1 synthetic demo")
 
 st.warning(
@@ -143,4 +143,4 @@ st.markdown(
     "**Open schema → eligibility → estimator → explainable ranking.** "
     "See `schema/` and `scenarios/` in the repository."
 )
-st.caption("OpenCareFlow v0.1 • Apache-2.0 • synthetic data only • not for clinical use")
+st.caption("Lynx path v0.1 • Apache-2.0 • synthetic data only • not for clinical use")
