@@ -10,8 +10,9 @@ from opencareflow.engine import explain_ranking_change, rank_hospitals
 from opencareflow.models import PatientNeed
 from opencareflow.scenarios import list_scenarios, load_scenario
 
-st.set_page_config(page_title="LynxPath v0.1", page_icon="🏥", layout="wide")
+st.set_page_config(page_title="LynxPath v0.1", page_icon="site/assets/app-icon.png", layout="wide")
 
+st.image("site/assets/logo.jpg", width=360)
 st.title("LynxPath")
 st.caption("Open capacity signals + explainable time-to-care • v0.1 synthetic demo")
 
