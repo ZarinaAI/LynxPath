@@ -1,15 +1,15 @@
-# Publish OpenCareFlow v0.1 to GitHub
+# Publish LynxPath v0.1 to GitHub
 
-1. Create an empty public repository named `OpenCareFlow`.
+1. Create an empty public repository named `LynxPath`.
 2. Replace `YOUR_USERNAME` in `CITATION.cff` after the repository exists.
 3. From this folder:
 
 ```bash
 git init
 git add .
-git commit -m "OpenCareFlow v0.1: open capacity schema and reproducible demo"
+git commit -m "LynxPath v0.1: open capacity schema and reproducible demo"
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/OpenCareFlow.git
+git remote add origin https://github.com/YOUR_USERNAME/LynxPath.git
 git push -u origin main
 ```
 

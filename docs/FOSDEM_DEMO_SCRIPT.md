@@ -1,4 +1,4 @@
-# 90-second OpenCareFlow live demo script
+# 90-second LynxPath live demo script
 
 1. **Open the fracture scenario at T = 0.**
    - Patient requirement is already declared: X-ray + orthopaedics.
